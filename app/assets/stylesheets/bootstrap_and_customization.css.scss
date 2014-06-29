@@ -5,3 +5,16 @@ $brand-primary: #d35400;
 $jumbotron-bg: #ecf0f1;
 
 @import 'bootstrap';
+
+form {
+	background-color: #FAE5C2;
+	padding: 2%;
+}
+
+.name {
+	display: block;
+}
+
+.center {
+	text-align: center;
+}
