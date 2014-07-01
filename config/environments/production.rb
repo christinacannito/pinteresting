@@ -80,4 +80,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { :host => 'finallyfunny.com' }
+  # above is required for Heroku 
+  # NOTE above must be set to the actual host
 end
