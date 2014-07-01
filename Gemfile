@@ -13,7 +13,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap-sass'
 gem 'devise', '~> 3.1.0.rc2' 
 
-gem 'spring',        group: :development
+# gem 'spring',        group: :development
 gem 'sass'
 
 group :production, :staging do 

@@ -1,6 +1,14 @@
 <div class="jumbotron">	
 	<h1>Finally Funny</h1>
 	<p>When something really embarrassing happens to you it is not really funny at the moment. Then a few weeks go by and all of sudden you look back and think "that was funny!". Here you can share all your "finally funny" moments and get to read some from others.</p>
-	<%= link_to "log in", "#", class: "btn btn-default btn-lg" %>
-	<%= link_to "sign up", "#", class: "btn btn-primary btn-lg" %>
+	<% if user_signed_in? %>
+		<p>Welcome! </p>
+
+	<% else %>		
+		<p>
+			<%= link_to "log in", new_user_session_path, class: "btn btn-default btn-lg" %>
+			<%= link_to "sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+		</p>
+	<% end %>
+
 </div>
