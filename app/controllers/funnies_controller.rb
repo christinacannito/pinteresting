@@ -14,8 +14,8 @@ class FunniesController < ApplicationController
 
   # GET /funnies/new
   def new
-    @funny = Funny.new
-  end
+    @funny = current_user.funnies.build
+  end # this is another way to create a funny
 
   # GET /funnies/1/edit
   def edit
@@ -24,7 +24,7 @@ class FunniesController < ApplicationController
   # POST /funnies
   # POST /funnies.json
   def create
-    @funny = Funny.new(funny_params)
+    @funny = current_user.funnies.build(funny_params)
 
     respond_to do |format|
       if @funny.save
