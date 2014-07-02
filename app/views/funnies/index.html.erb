@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Description</th>
+      <th>User ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,9 +13,12 @@
     <% @funnies.each do |funny| %><!-- will do something to each funny -->
       <tr>
         <td><%= funny.description %></td>
+        <td><%= funny.user.email if funny.user %></td>
         <td><%= link_to 'Show', funny %></td>
-        <td><%= link_to 'Edit', edit_funny_path(funny) %></td>
-        <td><%= link_to 'Destroy', funny, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if funny.user == current_user %>
+          <td><%= link_to 'Edit', edit_funny_path(funny) %></td>
+          <td><%= link_to 'Destroy', funny, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>  
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +26,6 @@
 
 <br>
 
-<%= link_to 'New Funny', new_funny_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Funny', new_funny_path %>
+<% end %>

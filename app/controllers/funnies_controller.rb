@@ -1,5 +1,10 @@
+# require 'pry'
 class FunniesController < ApplicationController
   before_action :set_funny, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  # above you can edit what you would like to see or NOT see
+  # if a person is signed in or not 
 
   # GET /funnies
   # GET /funnies.json
@@ -65,6 +70,16 @@ class FunniesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_funny
       @funny = Funny.find(params[:id])
+    end
+
+    def correct_user
+      # binding.pry
+      # check if the user's signed in 
+      # if current_user && current_user.funny_ids.include?(params[:id])
+      if current_user && current_user.funny_ids.include?(params[:id])
+      # @funny = current_user.funnies.find_by(id: params[:id])
+        redirect_to funnies_path, notice: "Not authorized to edit this pin" if @funny.nil?
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
