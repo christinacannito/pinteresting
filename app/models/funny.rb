@@ -1,8 +1,11 @@
 class Funny < ActiveRecord::Base
 	belongs_to :user
 	
-	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" } #:bucket => 'finallyfunny', :storage => :s3, #:s3_credentials => S3_CREDENTIALS # here add the default url if a person doesn't want to add an image // :default_url => "/images/:style/missing.png"
-	# copied from the paperclip github - will create a thumbnail and full size image
-	# a pin has an attached image
+	has_attached_file :image, 
+		:style => { :medium => "300x300>", :thumb => "100x100>" },
+		# :storage => :s3, 
+		:bucket => ENV['finallyfunny']
+	# validates :image, presence: true 
+	# validates :description, presence: true	
 	do_not_validate_attachment_file_type :image 
 end
