@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= image_tag @funny.image.url %>
 
 <p>
   <strong>Description:</strong>
@@ -8,5 +8,6 @@
 <% if @funny.user == current_user %>
 	<%= link_to 'Edit', edit_funny_path(@funny) %> |
 <% end %>	
-	<%= link_to 'Back', funnies_path %>
+
+<%= link_to 'Back', funnies_path %>
 

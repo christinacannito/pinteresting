@@ -84,6 +84,6 @@ class FunniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def funny_params
-      params.require(:funny).permit(:description)
+      params.require(:funny).permit(:description, :image)
     end
 end

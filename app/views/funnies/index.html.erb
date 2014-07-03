@@ -13,12 +13,14 @@
     <% @funnies.each do |funny| %><!-- will do something to each funny -->
       <tr>
         <td><%= funny.description %></td>
-        <td><%= funny.user.email if funny.user %></td>
+        <td><%= funny.user.email if funny.user %></td><!-- only will show if a funny has a user -->
         <td><%= link_to 'Show', funny %></td>
+        
         <% if funny.user == current_user %>
           <td><%= link_to 'Edit', edit_funny_path(funny) %></td>
           <td><%= link_to 'Destroy', funny, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>  
+      
       </tr>
     <% end %>
   </tbody>
