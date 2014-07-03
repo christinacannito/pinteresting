@@ -88,7 +88,7 @@ Rails.application.configure do # these changes only get loaded for heroku
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET_NAME'], # these are enviroment variables 
+      :bucket => ENV['AWS_BUCKET'], # these are enviroment variables 
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'], # using enviroment variables
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
