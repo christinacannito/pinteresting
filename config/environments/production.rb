@@ -86,11 +86,11 @@ Rails.application.configure do # these changes only get loaded for heroku
   # NOTE above must be set to the actual host
 
   config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['S3_FINALLYFUNNY'], # these are enviroment variables 
-    :access_key_id => ENV['AWS_ACCESS_KEY_ID'], # using enviroment variables
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  }
-} # this sets paperclip to upload images to Amazon S3
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET_NAME'], # these are enviroment variables 
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'], # using enviroment variables
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  } # this sets paperclip to upload images to Amazon S3
 end
