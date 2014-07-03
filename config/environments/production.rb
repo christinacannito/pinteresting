@@ -1,4 +1,4 @@
-Rails.application.configure do
+Rails.application.configure do # these changes only get loaded for heroku
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -84,4 +84,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'finallyfunny.com' }
   # above is required for Heroku 
   # NOTE above must be set to the actual host
+
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['S3_BUCKET_NAME'], # these are enviroment variables 
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'], # using enviroment variables
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  }
+} # this sets paperclip to upload images to Amazon S3
 end

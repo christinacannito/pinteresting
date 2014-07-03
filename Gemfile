@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap-sass'
 gem 'devise', '~> 3.1.0.rc2' 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk', '~> 1.20.0' # amazon gem for storing gems
 
 # gem 'spring',        group: :development
 gem 'sass'
