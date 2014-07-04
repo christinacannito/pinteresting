@@ -12,7 +12,10 @@
 				<p><strong><%= @funny.user.email if @funny.user %></strong></p>
 
 				<% if @funny.user == current_user %>
-					<%= link_to 'Edit', edit_funny_path(@funny) %>
+					<%= link_to edit_funny_path(@funny) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+              edit
+          <% end %>
 				<% end %>
 			</div>	
 		</div>

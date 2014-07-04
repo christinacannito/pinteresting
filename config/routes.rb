@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :funnies
 
   devise_for :users
-  root "pages#home"
+  root "funnies#index"
   get "about" => "pages#about"
   get "contactus" => "pages#contactus"
   get "funnies" => "pages#funnies"

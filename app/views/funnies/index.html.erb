@@ -1,3 +1,5 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
 <div id="funnies" class="transitions-enabled">
   <% @funnies.each do |funny| %><!-- will do something to each funny -->
     <div class="box panel panel-default">
@@ -7,8 +9,14 @@
         <p><strong><%= funny.user.email if funny.user %></strong></p><!-- only will show if a funny has a user -->
         <% if funny.user == current_user %>
           <div class="actions">
-            <%= link_to 'Edit', edit_funny_path(funny) %>
-            <%= link_to 'Destroy', funny, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to edit_funny_path(funny) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              edit
+            <% end %>
+            <%= link_to funny, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              delete
+            <% end %>
           </div>  
         <% end %> 
       </div>
