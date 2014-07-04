@@ -1,35 +1,17 @@
-<h1>Listing funnies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Description</th>
-      <th>User ID</th>
-      <!-- <th colspan="3"></th> -->
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @funnies.each do |funny| %><!-- will do something to each funny -->
-      <tr>
-        <td><%= image_tag funny.image.url(:medium) %></td>
-        <td><%= funny.description %></td>
-        <td><%= funny.user.email if funny.user %></td><!-- only will show if a funny has a user -->
-        <td><%= link_to 'Show', funny %></td>
-        
+<div id="funnies" class="transitions-enabled">
+  <% @funnies.each do |funny| %><!-- will do something to each funny -->
+    <div class="box panel panel-default">
+      <%= image_tag funny.image.url(:medium) %>
+      <div class="panel-body">
+        <%= funny.description %></td>
+        <%= funny.user.email if funny.user %><!-- only will show if a funny has a user -->
+        <%= link_to 'Show', funny %>
         <% if funny.user == current_user %>
-          <td><%= link_to 'Edit', edit_funny_path(funny) %></td>
-          <td><%= link_to 'Destroy', funny, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>  
-      
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <%= link_to 'Edit', edit_funny_path(funny) %>
+          <%= link_to 'Destroy', funny, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %> 
+      </div>
+    </div>   
+  <% end %>
+</div>
 
-<br>
-
-<% if user_signed_in? %>
-  <%= link_to 'New Funny', new_funny_path %>
-<% end %>
