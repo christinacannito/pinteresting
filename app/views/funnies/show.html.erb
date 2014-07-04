@@ -1,13 +1,20 @@
-<%= image_tag @funny.image.url(:medium) %>
-
-<p>
-  <strong>Description:</strong>
-  <%= @funny.description %>
-</p>
-
-<% if @funny.user == current_user %>
-	<%= link_to 'Edit', edit_funny_path(@funny) %> |
-<% end %>	
-
 <%= link_to 'Back', funnies_path %>
 
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading center">
+				<%= image_tag @funny.image.url(:medium) %>
+			</div>	
+			
+			<div class="panel-body">
+				<p><%= @funny.description %></p>
+				<p><strong><%= @funny.user.email if @funny.user %></strong></p>
+
+				<% if @funny.user == current_user %>
+					<%= link_to 'Edit', edit_funny_path(@funny) %>
+				<% end %>
+			</div>	
+		</div>
+	</div>		
+</div>		

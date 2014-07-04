@@ -21,11 +21,6 @@ module Pinteresting
     # config.i18n.default_locale = :de
     
     # required for heroku
-    config.assets.initialize_on_precompile = true
-
- #     config.paperclip_defaults = {
- #            :storage => :s3,
- #            :s3_host_name => 's3-eu-west-1.amazonaws.com'
- # }
+    config.assets.initialize_on_precompile = false
   end
 end
