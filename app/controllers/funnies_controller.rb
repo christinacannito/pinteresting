@@ -9,7 +9,7 @@ class FunniesController < ApplicationController
   # GET /funnies
   # GET /funnies.json
   def index
-    @funnies = Funny.all
+    @funnies = Funny.all.order("created_at DESC") # .all gives you all of them in which they were created 
   end
 
   # GET /funnies/1
