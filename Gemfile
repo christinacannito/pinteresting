@@ -24,6 +24,6 @@ end
 group :production, :staging do 
 	gem 'pg'
 	gem 'rails_12factor'
-end 
+end
 
 # gem 'rails_12factor', group: :production
