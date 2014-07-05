@@ -9,7 +9,7 @@
 			
 			<div class="panel-body">
 				<p><%= @funny.description %></p>
-				<p><strong><%= @funny.user.email if @funny.user %></strong></p>
+				<p><strong><%= @funny.user.name if @funny.user %></strong></p>
 
 				<% if @funny.user == current_user %>
 					<%= link_to edit_funny_path(@funny) do %>
