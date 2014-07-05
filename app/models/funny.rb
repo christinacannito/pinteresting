@@ -10,4 +10,8 @@ class Funny < ActiveRecord::Base
 	# validates :image, presence: true 
 	# validates :description, presence: true	
 	do_not_validate_attachment_file_type :image 
+		
+
+	validates :image, presence: true
+	validates :description, presence: true
 end

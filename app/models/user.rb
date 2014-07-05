@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :funnies      
 
+  validates :name, presence: true 
 end
